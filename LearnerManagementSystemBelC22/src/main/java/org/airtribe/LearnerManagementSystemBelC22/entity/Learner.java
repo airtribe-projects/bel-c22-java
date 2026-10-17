@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
@@ -27,6 +28,7 @@ public class Learner {
   @Column(unique = true)
   @NotNull
   @NotEmpty
+  @Email
   private String learnerEmail;
 
   @NotNull
@@ -51,6 +53,12 @@ public class Learner {
     this.learnerEmail = learnerEmail;
     this.learnerPhone = learnerPhone;
     this.cohorts = cohorts;
+  }
+
+  public Learner(String learnerName, String learnerEmail, String learnerPhone) {
+    this.learnerName = learnerName;
+    this.learnerEmail = learnerEmail;
+    this.learnerPhone = learnerPhone;
   }
 
   public Learner() {

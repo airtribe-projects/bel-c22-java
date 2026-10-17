@@ -5,6 +5,7 @@ import java.util.List;
 import org.airtribe.LearnerManagementSystemBelC22.entity.Learner;
 import org.airtribe.LearnerManagementSystemBelC22.entity.LearnerDTO;
 import org.airtribe.LearnerManagementSystemBelC22.exception.LearnerNotFoundException;
+import org.airtribe.LearnerManagementSystemBelC22.repository.LearnerRepository;
 import org.airtribe.LearnerManagementSystemBelC22.service.LearnerManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,9 @@ public class LearnerController {
 
   @Autowired
   private LearnerManagementService _learnerManagementService;
+
+  @Autowired
+  private LearnerRepository _learnerRepository;
 
   @PostMapping("/learners")
   public Learner createLearner(@Valid @RequestBody Learner learner) {
